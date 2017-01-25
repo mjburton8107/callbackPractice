@@ -85,7 +85,11 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
-
+var contains = function(arr, str, cb){
+  for (var i = 0; i < arr.length; i++){
+    cb(arr[i] === str);
+  }
+}
 
 
 contains(names, 'Colt', function(result){
@@ -107,6 +111,16 @@ contains(names, 'Colt', function(result){
 
     //Code Here for uniq
 
+var uniq = function(arr, cb){
+  var uniqueArray = [];
+  for (var i = 0; i < arr.length; i++){
+    if(uniqueArray.indexOf(arr[i]) == -1){
+      uniqueArray.push(arr[i]);
+      cb(uniqueArray);
+    }
+  }
+}
+
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
@@ -122,6 +136,12 @@ uniq(names, function(uniqArr){
 
     //Code Here for each
 
+var each = function(arr, cb){
+  for (var i = 0; i < arr.length; i++){
+    cb(arr[i], i);
+  }
+}
+
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
 });
@@ -135,7 +155,13 @@ each(names, function(item, indice){
 
 
 
-
+var getUserById = function(arr, str, cb){
+  for (var i = 0; i < arr.length; i++){
+    if(arr[i].id === str){
+      cb(arr[i]);
+    }
+  }
+}
  //code here for getUserById
 
 var users = [
